@@ -132,7 +132,7 @@
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Border BackgroundColor="White" StrokeThickness="0" SelectionChanged="OnProductSelected">
+                            <Border BackgroundColor="White" StrokeThickness="0">
                                 <Border.StrokeShape><RoundRectangle CornerRadius="10" /></Border.StrokeShape>
                                 <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnProductTapped" /></Border.GestureRecognizers>
                                 <VerticalStackLayout>

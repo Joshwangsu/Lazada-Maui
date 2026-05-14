@@ -30,7 +30,7 @@
                                 <Path Data="{StaticResource IconShare}" Fill="White" WidthRequest="18" HeightRequest="18" Aspect="Uniform" />
                             </Border>
                             <Border BackgroundColor="#80000000" Padding="8" StrokeThickness="0" WidthRequest="36" HeightRequest="36">
-                                <Border.StrokeShape><RoundRectangle CornerRectangle="18" /></Border.StrokeShape>
+                                <Border.StrokeShape><RoundRectangle CornerRadius="18" /></Border.StrokeShape>
                                 <Path Data="{StaticResource IconCart}" Fill="White" WidthRequest="18" HeightRequest="18" Aspect="Uniform" />
                             </Border>
                         </HorizontalStackLayout>
