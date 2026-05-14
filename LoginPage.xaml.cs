@@ -24,8 +24,7 @@ public partial class LoginPage : ContentPage
         try
         {
             // 1. Initiate Google Sign-In via MAUI WebAuthenticator
-            // NOTE: You must configure your Firebase project and update this URL with your project ID
-            var authUrl = new Uri("https://YOUR_PROJECT_ID.firebaseapp.com/__/auth/handler");
+            var authUrl = new Uri("https://lazada-mobile-7e132.firebaseapp.com/__/auth/handler");
             var callbackUrl = new Uri("lazada://"); // Custom URI scheme you must register in Android/iOS project
 
             var result = await WebAuthenticator.Default.AuthenticateAsync(authUrl, callbackUrl);
@@ -37,8 +36,8 @@ public partial class LoginPage : ContentPage
             var authProvider = new Firebase.Auth.Providers.GoogleProvider();
             var firebaseClient = new Firebase.Auth.FirebaseAuthClient(new Firebase.Auth.FirebaseAuthConfig
             {
-                ApiKey = "YOUR_FIREBASE_API_KEY",
-                AuthDomain = "YOUR_PROJECT_ID.firebaseapp.com",
+                ApiKey = "AIzaSyB5jpRKgD6gfVQeFOvxoQijmg_YSFrnSak",
+                AuthDomain = "lazada-mobile-7e132.firebaseapp.com",
                 Providers = new Firebase.Auth.Providers.FirebaseAuthProvider[] { authProvider }
             });
 
