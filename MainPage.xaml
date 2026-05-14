@@ -4,49 +4,64 @@
              x:Class="Lazada.MainPage"
              NavigationPage.HasNavigationBar="False"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="#F2F2F2">
+             BackgroundColor="{StaticResource LazadaCanvas}">
 
-    <Grid RowDefinitions="Auto, *, Auto">
+    <Grid RowDefinitions="Auto, *, Auto" MaximumWidthRequest="355" HorizontalOptions="Center" BackgroundColor="White">
         <!-- 1. Top Header Section -->
         <VerticalStackLayout Grid.Row="0" BackgroundColor="White" Padding="0,0,0,10">
             <!-- Global Brand Selection Banner -->
-            <Grid BackgroundColor="#EDF2FF" Padding="10,5">
-                <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
-                    <Label Text="❤️" FontSize="12" VerticalOptions="Center" />
-                    <Label Text="Global Brand Selection" FontSize="10" FontAttributes="Bold" TextColor="#4A4A4A" VerticalOptions="Center" />
-                    <Label Text="Free Shipping • Fast Delivery • Free Return >" FontSize="10" TextColor="#4A4A4A" VerticalOptions="Center" />
+            <Grid BackgroundColor="{StaticResource LazadaOverlay}" Padding="10,5">
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="8">
+                    <Path Data="{StaticResource IconSecurity}" Fill="{StaticResource LazadaBrand}" HeightRequest="12" WidthRequest="12" Aspect="Uniform" VerticalOptions="Center" />
+                    <Label Text="Global Brand Selection" FontSize="{StaticResource TextXS}" FontAttributes="Bold" TextColor="{StaticResource LazadaTextPrimary}" VerticalOptions="Center" />
+                    <Label Text="Free Shipping • Fast Delivery • Free Return >" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextSecondary}" VerticalOptions="Center" />
                 </HorizontalStackLayout>
             </Grid>
 
             <!-- Search Bar Area -->
             <Grid ColumnDefinitions="*, Auto" Padding="15,10" ColumnSpacing="0">
-                <Frame Grid.Column="0" HasShadow="False" CornerRadius="0" Padding="10,2" BackgroundColor="White" BorderColor="#F0134D" HeightRequest="45">
-                    <Grid ColumnDefinitions="*, Auto">
-                        <Label Text="all in one solar system" VerticalOptions="Center" TextColor="#4A4A4A" FontSize="14" />
-                        <Label Grid.Column="1" Text="[O]" VerticalOptions="Center" TextColor="#4A4A4A" FontSize="16" FontAttributes="Bold" />
+                <Border Grid.Column="0" Stroke="{StaticResource LazadaBrand}" StrokeThickness="1.5" HeightRequest="45" BackgroundColor="{StaticResource LazadaSurface}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="0" />
+                    </Border.StrokeShape>
+                    <Grid ColumnDefinitions="*, Auto" Padding="12,0">
+                        <Label Text="all in one solar system" VerticalOptions="Center" TextColor="{StaticResource LazadaTextSecondary}" FontSize="{StaticResource TextBase}" />
+                        <Path Grid.Column="1" Data="{StaticResource IconSettings}" Fill="{StaticResource LazadaTextSecondary}" HeightRequest="18" WidthRequest="18" Aspect="Uniform" VerticalOptions="Center" />
                     </Grid>
-                </Frame>
-                <Button Grid.Column="1" Text="Search" BackgroundColor="#F0134D" TextColor="White" CornerRadius="0" WidthRequest="80" HeightRequest="45" Padding="0" Margin="-5,0,0,0" />
+                </Border>
+                <Button Grid.Column="1" Text="Search" BackgroundColor="{StaticResource LazadaBrand}" TextColor="White" CornerRadius="0" WidthRequest="80" HeightRequest="45" Padding="0" Margin="-1,0,0,0" FontAttributes="Bold" />
             </Grid>
 
             <!-- Tag Pills -->
             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never" Margin="15,0">
                 <HorizontalStackLayout Spacing="8">
-                    <Frame Padding="10,4" HasShadow="False" BackgroundColor="#F5F5F5" CornerRadius="5" BorderColor="Transparent">
+                    <Border Padding="10,4" BackgroundColor="{StaticResource LazadaOverlay}" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5" />
+                        </Border.StrokeShape>
                         <HorizontalStackLayout Spacing="5">
-                            <Label Text="!" TextColor="#F0134D" FontSize="10" FontAttributes="Bold" />
-                            <Label Text="waist fan" FontSize="11" TextColor="#212121" />
+                            <Path Data="{StaticResource IconStar}" Fill="{StaticResource LazadaBrand}" HeightRequest="10" WidthRequest="10" Aspect="Uniform" VerticalOptions="Center" />
+                            <Label Text="waist fan" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextPrimary}" />
                         </HorizontalStackLayout>
-                    </Frame>
-                    <Frame Padding="10,4" HasShadow="False" BackgroundColor="#F5F5F5" CornerRadius="5" BorderColor="Transparent">
-                        <Label Text="pure form" FontSize="11" TextColor="#212121" />
-                    </Frame>
-                    <Frame Padding="10,4" HasShadow="False" BackgroundColor="#F5F5F5" CornerRadius="5" BorderColor="Transparent">
-                        <Label Text="sun shade" FontSize="11" TextColor="#212121" />
-                    </Frame>
-                    <Frame Padding="10,4" HasShadow="False" BackgroundColor="#F5F5F5" CornerRadius="5" BorderColor="Transparent">
-                        <Label Text="ceilings fan" FontSize="11" TextColor="#212121" />
-                    </Frame>
+                    </Border>
+                    <Border Padding="10,4" BackgroundColor="{StaticResource LazadaOverlay}" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5" />
+                        </Border.StrokeShape>
+                        <Label Text="pure form" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextPrimary}" />
+                    </Border>
+                    <Border Padding="10,4" BackgroundColor="{StaticResource LazadaOverlay}" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5" />
+                        </Border.StrokeShape>
+                        <Label Text="sun shade" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextPrimary}" />
+                    </Border>
+                    <Border Padding="10,4" BackgroundColor="{StaticResource LazadaOverlay}" StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5" />
+                        </Border.StrokeShape>
+                        <Label Text="ceilings fan" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextPrimary}" />
+                    </Border>
                 </HorizontalStackLayout>
             </ScrollView>
         </VerticalStackLayout>
@@ -56,41 +71,60 @@
             <VerticalStackLayout Spacing="0">
                 <!-- Service Icons Bar (Scrollable for Responsiveness) -->
                 <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never" BackgroundColor="White">
-                    <Grid ColumnDefinitions="80, 80, 80, 80, 80" Padding="10,15">
-                        <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="5" WidthRequest="80">
-                            <Frame HeightRequest="45" WidthRequest="45" CornerRadius="22.5" BackgroundColor="#FFEB3B" HasShadow="False" Padding="0">
-                                <Path Data="M 12.5,22.5 A 10,10 0 1,1 32.5,22.5 A 10,10 0 1,1 12.5,22.5 M 20.5,14.5 L 20.5,30.5 M 24.5,14.5 L 24.5,30.5" 
-                                      Fill="#7F6D00" Stroke="#7F6D00" StrokeThickness="1" HorizontalOptions="Center" VerticalOptions="Center" />
-                            </Frame>
-                            <Label Text="Coins" FontSize="11" HorizontalOptions="Center" TextColor="#212121" />
+                    <Grid ColumnDefinitions="80, 80, 80, 80, 80" Padding="10,15" HorizontalOptions="Center">
+                        <!-- Coins -->
+                        <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="6" WidthRequest="80">
+                            <Border HeightRequest="50" WidthRequest="50" StrokeThickness="0" BackgroundColor="#FFF9C4">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="25" />
+                                </Border.StrokeShape>
+                                <Path Data="{StaticResource IconCoin}" Fill="#FBC02D" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="24" WidthRequest="24" />
+                            </Border>
+                            <Label Text="Coins" FontSize="{StaticResource TextXS}" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource LazadaTextPrimary}" />
                         </VerticalStackLayout>
-                        <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="5" WidthRequest="80">
-                            <Frame HeightRequest="45" WidthRequest="45" CornerRadius="8" BackgroundColor="#E1F5FE" HasShadow="False" Padding="0">
-                                <Path Data="M 10,15 L 30,15 L 30,35 L 10,35 Z M 30,20 L 40,15 L 40,35 L 30,30" 
-                                      Fill="#01579B" HorizontalOptions="Center" VerticalOptions="Center" Scale="0.7" />
-                            </Frame>
-                            <Label Text="LazLive" FontSize="11" HorizontalOptions="Center" TextColor="#212121" />
+
+                        <!-- LazLive -->
+                        <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="6" WidthRequest="80">
+                            <Border HeightRequest="50" WidthRequest="50" StrokeThickness="0" BackgroundColor="#E3F2FD">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12" />
+                                </Border.StrokeShape>
+                                <Path Data="{StaticResource IconLive}" Fill="#2196F3" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="24" WidthRequest="24" />
+                            </Border>
+                            <Label Text="LazLive" FontSize="{StaticResource TextXS}" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource LazadaTextPrimary}" />
                         </VerticalStackLayout>
-                        <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="5" WidthRequest="80">
-                            <Frame HeightRequest="45" WidthRequest="45" CornerRadius="8" BackgroundColor="#E8F5E9" HasShadow="False" Padding="0">
-                                <Path Data="M 15,15 L 35,15 L 40,40 L 10,40 Z M 20,15 C 20,5 30,5 30,15" 
-                                      Stroke="#1B5E20" StrokeThickness="2" Fill="Transparent" HorizontalOptions="Center" VerticalOptions="Center" Scale="0.7" />
-                            </Frame>
-                            <Label Text="LazMart" FontSize="11" HorizontalOptions="Center" TextColor="#212121" />
+
+                        <!-- LazMart -->
+                        <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="6" WidthRequest="80">
+                            <Border HeightRequest="50" WidthRequest="50" StrokeThickness="0" BackgroundColor="#E8F5E9">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12" />
+                                </Border.StrokeShape>
+                                <Path Data="{StaticResource IconCart}" Fill="#4CAF50" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="24" WidthRequest="24" />
+                            </Border>
+                            <Label Text="LazMart" FontSize="{StaticResource TextXS}" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource LazadaTextPrimary}" />
                         </VerticalStackLayout>
-                        <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="5" WidthRequest="80">
-                            <Frame HeightRequest="45" WidthRequest="45" CornerRadius="8" BackgroundColor="#FFF3E0" HasShadow="False" Padding="0">
-                                <Path Data="M 10,35 Q 25,25 40,35 M 20,35 L 20,20 Q 20,15 25,15 Q 30,15 30,20 L 30,35" 
-                                      Fill="#E65100" HorizontalOptions="Center" VerticalOptions="Center" Scale="0.7" />
-                            </Frame>
-                            <Label Text="LazLand" FontSize="11" HorizontalOptions="Center" TextColor="#212121" />
+
+                        <!-- LazLand -->
+                        <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="6" WidthRequest="80">
+                            <Border HeightRequest="50" WidthRequest="50" StrokeThickness="0" BackgroundColor="#FFF3E0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12" />
+                                </Border.StrokeShape>
+                                <Path Data="{StaticResource IconTree}" Fill="#FF9800" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="24" WidthRequest="24" />
+                            </Border>
+                            <Label Text="LazLand" FontSize="{StaticResource TextXS}" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource LazadaTextPrimary}" />
                         </VerticalStackLayout>
-                        <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="5" WidthRequest="80">
-                            <Frame HeightRequest="45" WidthRequest="45" CornerRadius="8" BackgroundColor="#E3F2FD" HasShadow="False" Padding="0">
-                                <Path Data="M 10,20 Q 10,15 15,15 L 35,15 Q 40,15 40,20 L 40,30 Q 40,35 35,35 L 15,35 Q 10,35 10,30 Z M 15,25 L 25,25 M 20,20 L 20,30 M 30,23 A 2,2 0 1,1 34,23 M 32,27 A 2,2 0 1,1 36,27" 
-                                      Stroke="#0D47A1" StrokeThickness="1.5" Fill="Transparent" HorizontalOptions="Center" VerticalOptions="Center" Scale="0.7" />
-                            </Frame>
-                            <Label Text="BigWin+" FontSize="11" HorizontalOptions="Center" TextColor="#212121" />
+
+                        <!-- BigWin+ -->
+                        <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="6" WidthRequest="80">
+                            <Border HeightRequest="50" WidthRequest="50" StrokeThickness="0" BackgroundColor="#F3E5F5">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="12" />
+                                </Border.StrokeShape>
+                                <Path Data="{StaticResource IconStar}" Fill="#9C27B0" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="24" WidthRequest="24" />
+                            </Border>
+                            <Label Text="BigWin+" FontSize="{StaticResource TextXS}" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{StaticResource LazadaTextPrimary}" />
                         </VerticalStackLayout>
                     </Grid>
                 </ScrollView>
@@ -139,6 +173,41 @@
                     </VerticalStackLayout>
                 </Frame>
 
+                <!-- Flash Sale Section -->
+                <Frame Margin="0,10,0,0" Padding="15" BackgroundColor="White" HasShadow="False">
+                    <VerticalStackLayout Spacing="10">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <HorizontalStackLayout Spacing="5">
+                                <Label Text="Flash" TextColor="#F0134D" FontAttributes="Bold" FontSize="16" />
+                                <Label Text="Sale" FontAttributes="Bold" FontSize="16" />
+                                <Label Text="00:12:45" BackgroundColor="#F0134D" TextColor="White" FontSize="12" Padding="5,2" Margin="10,0,0,0" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                            <Label Grid.Column="1" Text="Shop More >" TextColor="#F0134D" FontSize="12" VerticalOptions="Center" />
+                        </Grid>
+
+                        <CollectionView ItemsSource="{Binding FlashSaleProducts}" HeightRequest="180">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <VerticalStackLayout WidthRequest="100" Spacing="5">
+                                        <Frame Padding="0" HasShadow="False" CornerRadius="5" BackgroundColor="#F9F9F9" HeightRequest="100">
+                                            <Image Source="{Binding ImageUrl}" Aspect="AspectFit" Margin="5" />
+                                        </Frame>
+                                        <Label Text="{Binding Name}" FontSize="10" TextColor="#212121" LineBreakMode="TailTruncation" MaxLines="1" HorizontalOptions="Center" />
+                                        <Label Text="{Binding Price, StringFormat='₱{0}'}" TextColor="#F0134D" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center" />
+                                        <Grid HeightRequest="4" BackgroundColor="#EEEEEE" Margin="5,0">
+                                            <BoxView BackgroundColor="#F0134D" HorizontalOptions="Start" WidthRequest="40" />
+                                        </Grid>
+                                        <Label Text="12 sold" FontSize="9" TextColor="Gray" HorizontalOptions="Center" />
+                                    </VerticalStackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </Frame>
+
                 <!-- Product Feed (Just For You) -->
                 <CollectionView ItemsSource="{Binding JustForYouProducts}" 
                                 Margin="10,10,10,10"
@@ -151,9 +220,10 @@
                         <DataTemplate>
                                 <Frame CornerRadius="0" Padding="0" HasShadow="False" BackgroundColor="White" IsClippedToBounds="True">
                                     <VerticalStackLayout>
-                                        <Grid HeightRequest="180">
-                                            <BoxView Color="{Binding ImageColor}" />
-                                            <Label Text="{Binding FirstLetter}" TextColor="White" FontSize="60" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+                                        <Grid HeightRequest="180" BackgroundColor="#F9F9F9">
+                                            <BoxView Color="{Binding ImageColor}" IsVisible="False" />
+                                            <Label Text="{Binding FirstLetter}" TextColor="#CCCCCC" FontSize="60" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+                                            <Image Source="{Binding ImageUrl}" Aspect="AspectFit" Margin="10" />
                                         </Grid>
                                         
                                         <!-- Badges Bar -->
@@ -164,24 +234,26 @@
                                         </HorizontalStackLayout>
 
                                         <VerticalStackLayout Padding="10,0,10,10" Spacing="2">
-                                            <HorizontalStackLayout Spacing="5">
-                                                <Label Text="LazMall" BackgroundColor="#F0134D" TextColor="White" FontSize="8" Padding="3,1" VerticalOptions="Center" />
-                                                <Label Text="{Binding Name}" FontSize="11" LineBreakMode="TailTruncation" MaxLines="2" VerticalOptions="Center" />
-                                            </HorizontalStackLayout>
+                                            <Label LineBreakMode="TailTruncation" MaxLines="2" Margin="0,5">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text=" LazMall " BackgroundColor="#F0134D" TextColor="White" FontSize="9" FontAttributes="Bold" />
+                                                        <Span Text=" " FontSize="11" />
+                                                        <Span Text="{Binding Name}" FontSize="11" TextColor="#212121" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
                                             
                                             <Label Text="{Binding DiscountLabel}" TextColor="#F0134D" FontSize="9" />
                                             <Label Text="{Binding Price, StringFormat='₱ {0}'}" TextColor="#F0134D" FontSize="16" FontAttributes="Bold" />
                                             
                                             <HorizontalStackLayout Spacing="5">
-                                                <Label FontSize="9" TextColor="Gray">
-                                                    <Label.Text>
-                                                        <MultiBinding StringFormat="⭐ {0} ({1})">
-                                                            <Binding Path="Rating" />
-                                                            <Binding Path="Rating" />
-                                                        </MultiBinding>
-                                                    </Label.Text>
-                                                </Label>
-                                                <Label Text="{Binding SoldCount}" FontSize="9" TextColor="Gray" />
+                                                <HorizontalStackLayout Spacing="2">
+                                                    <Path Data="{StaticResource IconStar}" Fill="#FFC107" HeightRequest="10" WidthRequest="10" Aspect="Uniform" VerticalOptions="Center" />
+                                                    <Label Text="{Binding Rating}" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextSecondary}" />
+                                                    <Label Text="{Binding Rating, StringFormat='({0})'}" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextMuted}" />
+                                                </HorizontalStackLayout>
+                                                <Label Text="{Binding SoldCount}" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextMuted}" />
                                             </HorizontalStackLayout>
                                         </VerticalStackLayout>
                                     </VerticalStackLayout>
@@ -193,43 +265,50 @@
         </ScrollView>
 
         <!-- 3. Custom Bottom Navigation Bar -->
-        <Grid Grid.Row="2" BackgroundColor="White" HeightRequest="60" ColumnDefinitions="*, *, *, *, *" Padding="0,5">
+        <Grid Grid.Row="2" BackgroundColor="{StaticResource LazadaSurface}" HeightRequest="60" ColumnDefinitions="*, *, *, *, *" Padding="0,5">
             <!-- Top Border Line -->
-            <BoxView Grid.ColumnSpan="5" HeightRequest="1" Color="#E0E0E0" VerticalOptions="Start" />
+            <BoxView Grid.ColumnSpan="5" HeightRequest="1" Color="{StaticResource LazadaBorder}" VerticalOptions="Start" />
             
             <!-- Tab 1: For You (Selected) -->
             <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
-                <Path Data="M 12,21.35 L 10.55,20.03 C 5.4,15.36 2,12.27 2,8.5 C 2,5.41 4.42,3 7.5,3 C 9.24,3 10.91,3.81 12,5.08 C 13.09,3.81 14.76,3 16.5,3 C 19.58,3 22,5.41 22,8.5 C 22,12.27 18.6,15.36 13.45,20.03 L 12,21.35 Z" 
-                      Fill="#F0134D" Scale="1.2" HorizontalOptions="Center" />
-                <Label Text="For You" FontSize="10" TextColor="#F0134D" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <Path Data="{StaticResource IconHome}" Fill="{StaticResource LazadaBrand}" WidthRequest="22" HeightRequest="22" Aspect="Uniform" HorizontalOptions="Center" />
+                <Label Text="For You" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaBrand}" HorizontalOptions="Center" Margin="0,2,0,0" />
             </VerticalStackLayout>
 
             <!-- Tab 2: LazMall -->
             <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
-                <Path Data="M 18,6 L 18,2 C 18,0.9 17.1,0 16,0 L 8,0 C 6.9,0 6,0.9 6,2 L 6,6 L 0,6 L 0,20 C 0,21.1 0.9,22 2,22 L 22,22 C 23.1,22 24,21.1 24,20 L 24,6 L 18,6 Z M 8,2 L 16,2 L 16,6 L 8,6 L 8,2 Z M 22,20 L 2,20 L 2,8 L 22,8 L 22,20 Z" 
-                      Fill="#4A4A4A" Scale="1.1" HorizontalOptions="Center" />
-                <Label Text="LazMall" FontSize="10" TextColor="#4A4A4A" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLazMallTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Path Data="{StaticResource IconLazMall}" Fill="{StaticResource LazadaTextSecondary}" WidthRequest="22" HeightRequest="22" Aspect="Uniform" HorizontalOptions="Center" />
+                <Label Text="LazMall" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextSecondary}" HorizontalOptions="Center" Margin="0,2,0,0" />
             </VerticalStackLayout>
 
             <!-- Tab 3: Message+ -->
             <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center">
-                <Path Data="M 20,2 L 4,2 C 2.9,2 2,2.9 2,4 L 2,22 L 6,18 L 20,18 C 21.1,18 22,17.1 22,16 L 22,4 C 22,2.9 21.1,2 20,2 Z M 20,16 L 5.2,16 L 4,17.2 L 4,4 L 20,4 L 20,16 Z M 11,6 L 13,6 L 13,9 L 16,9 L 16,11 L 13,11 L 13,14 L 11,14 L 11,11 L 8,11 L 8,9 L 11,9 Z" 
-                      Fill="#4A4A4A" Scale="1.1" HorizontalOptions="Center" />
-                <Label Text="Message+" FontSize="10" TextColor="#4A4A4A" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnMessageTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Path Data="{StaticResource IconComment}" Fill="{StaticResource LazadaTextSecondary}" WidthRequest="22" HeightRequest="22" Aspect="Uniform" HorizontalOptions="Center" />
+                <Label Text="Message+" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextSecondary}" HorizontalOptions="Center" Margin="0,2,0,0" />
             </VerticalStackLayout>
 
             <!-- Tab 4: Cart -->
             <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center">
-                <Path Data="M 7,18 C 5.9,18 5,18.9 5,20 C 5,21.1 5.9,22 7,22 C 8.1,22 9,21.1 9,20 C 9,18.9 8.1,18 7,18 Z M 1,2 L 1,4 L 3,4 L 6.6,11.59 L 5.25,14.04 C 5.09,14.32 5,14.65 5,15 C 5,16.1 5.9,17 7,17 L 19,17 L 19,15 L 7.42,15 C 7.28,15 7.17,14.89 7.17,14.75 L 7.2,14.63 L 8.1,13 L 15.55,13 C 16.3,13 16.96,12.59 17.3,11.97 L 21.88,3.62 C 21.95,3.5 22,3.35 22,3.2 C 22,2.54 21.46,2 20.8,2 L 5.21,2 L 4.27,0 L 1,0 Z M 17,18 C 15.9,18 15,18.9 15,20 C 15,21.1 15.9,22 17,22 C 18.1,22 19,21.1 19,20 C 19,18.9 18.1,18 17,18 Z" 
-                      Fill="#4A4A4A" Scale="1.1" HorizontalOptions="Center" />
-                <Label Text="Cart" FontSize="10" TextColor="#4A4A4A" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCartTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Path Data="{StaticResource IconCart}" Fill="{StaticResource LazadaTextSecondary}" WidthRequest="22" HeightRequest="22" Aspect="Uniform" HorizontalOptions="Center" />
+                <Label Text="Cart" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextSecondary}" HorizontalOptions="Center" Margin="0,2,0,0" />
             </VerticalStackLayout>
 
             <!-- Tab 5: Account -->
             <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center">
-                <Path Data="M 12,12 C 14.21,12 16,10.21 16,8 C 16,5.79 14.21,4 12,4 C 9.79,4 8,5.79 8,8 C 8,10.21 9.79,12 12,12 Z M 12,14 C 9.33,14 4,15.33 4,18 L 4,20 L 20,20 L 20,18 C 20,15.33 14.67,14 12,14 Z" 
-                      Fill="#4A4A4A" Scale="1.1" HorizontalOptions="Center" />
-                <Label Text="Account" FontSize="10" TextColor="#4A4A4A" HorizontalOptions="Center" Margin="0,2,0,0" />
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAccountTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Path Data="{StaticResource IconAccount}" Fill="{StaticResource LazadaTextSecondary}" WidthRequest="22" HeightRequest="22" Aspect="Uniform" HorizontalOptions="Center" />
+                <Label Text="Account" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextSecondary}" HorizontalOptions="Center" Margin="0,2,0,0" />
             </VerticalStackLayout>
         </Grid>
     </Grid>

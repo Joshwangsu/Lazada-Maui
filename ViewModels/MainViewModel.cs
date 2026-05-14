@@ -12,18 +12,18 @@ public class MainViewModel
     {
         FlashSaleProducts = new ObservableCollection<Product>
         {
-            new Product { Name = "Item 1", Price = 99, OriginalPrice = 199 },
-            new Product { Name = "Item 2", Price = 149, OriginalPrice = 299 },
-            new Product { Name = "Item 3", Price = 49, OriginalPrice = 99 },
-            new Product { Name = "Item 4", Price = 899, OriginalPrice = 1299 }
+            new Product { Name = "Wireless Earbuds Pro", Price = 999, OriginalPrice = 1999, ImageUrl = "product_earbuds.png" },
+            new Product { Name = "Mechanical Gaming Keyboard", Price = 1499, OriginalPrice = 2999, ImageUrl = "product_keyboard.png" },
+            new Product { Name = "Smart Watch Series 7", Price = 2499, OriginalPrice = 4999, ImageUrl = "product_smartwatch.png" },
+            new Product { Name = "Premium Coffee Maker", Price = 899, OriginalPrice = 1299, ImageUrl = "product_coffee_maker.png" }
         };
 
         JustForYouProducts = new ObservableCollection<Product>
         {
-            new Product { Name = "gumahus | Casual Comfort Slip-on Loafers Men's...", Price = 554.59, Rating = 5, SoldCount = "57 sold", DiscountLabel = "100% Authentic", ImageColor = "#4A148C" },
-            new Product { Name = "【Fadikou】 900ml Large Capacity Tumbler With S...", Price = 38.00, Rating = 4.9, SoldCount = "87.5k sold", DiscountLabel = "Lowest Price Guarantee", ImageColor = "#D81B60" },
-            new Product { Name = "H.CHENG HOME | Modern Blackout Curtains for...", Price = 249.00, Rating = 4.8, SoldCount = "1.2k sold", DiscountLabel = "Official Store", ImageColor = "#00796B" },
-            new Product { Name = "Unilever Official Store | Clear Shampoo 450ml", Price = 350.00, Rating = 5, SoldCount = "10k+ sold", DiscountLabel = "Official Store", ImageColor = "#E65100" }
+            new Product { Name = "GUMAHUS | Casual Sneakers Loafers Men's Comfort", Price = 554.59, Rating = 5, SoldCount = "57 sold", DiscountLabel = "100% Authentic", ImageUrl = "product_sneakers.png" },
+            new Product { Name = "SMART | Pro Smartwatch with Heart Rate Monitor", Price = 1250.00, Rating = 4.9, SoldCount = "87.5k sold", DiscountLabel = "Lowest Price Guarantee", ImageUrl = "product_smartwatch.png" },
+            new Product { Name = "ARCTIC | Waterproof Laptop Backpack Navy Blue", Price = 749.00, Rating = 4.8, SoldCount = "1.2k sold", DiscountLabel = "Official Store", ImageUrl = "product_backpack.png" },
+            new Product { Name = "SOUNDCORE | Wireless Bluetooth Earbuds Black", Price = 1350.00, Rating = 5, SoldCount = "10k+ sold", DiscountLabel = "Official Store", ImageUrl = "product_earbuds.png" }
         };
     }
 }

@@ -13,7 +13,7 @@ public partial class SplashPage : ContentPage
         // Wait for 3 seconds to show the splash screen
         await Task.Delay(3000);
         
-        // Navigate to the main AppShell
-        Application.Current.MainPage = new AppShell();
+        // Navigate to the Login Page wrapped in a NavigationPage
+        Application.Current.MainPage = new NavigationPage(new LoginPage());
     }
 }

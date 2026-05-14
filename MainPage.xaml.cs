@@ -19,5 +19,25 @@ namespace Lazada
                 await Navigation.PushAsync(new ProductDetailPage());
             }
         }
+
+        private async void OnAccountTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AccountPage());
+        }
+
+        private async void OnLazMallTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LazMallPage());
+        }
+
+        private async void OnMessageTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MessagePage());
+        }
+
+        private async void OnCartTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CartPage());
+        }
     }
 }

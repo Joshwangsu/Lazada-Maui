@@ -19,12 +19,6 @@
                    HeightRequest="180" 
                    HorizontalOptions="Center" />
             
-            <Label Text="Lazada" 
-                   TextColor="White" 
-                   FontSize="48" 
-                   FontAttributes="Bold" 
-                   HorizontalOptions="Center"
-                   Margin="0,-20,0,0" />
         </VerticalStackLayout>
 
         <ActivityIndicator IsRunning="True" 

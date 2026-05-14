@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lazada.EmailAuthPage"
+             Title="Login with Email"
+             BackgroundColor="White">
+
+    <VerticalStackLayout Padding="20,40" Spacing="20" MaximumWidthRequest="355" HorizontalOptions="Center">
+        <Label Text="Welcome Back!" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource LazadaTextPrimary}" />
+        <Label Text="Sign in to your account using Firebase Authentication." FontSize="14" TextColor="{StaticResource LazadaTextSecondary}" Margin="0,0,0,10" />
+
+        <Border BackgroundColor="#F5F5F5" StrokeThickness="0" Padding="15,5">
+            <Border.StrokeShape><RoundRectangle CornerRadius="4" /></Border.StrokeShape>
+            <Entry x:Name="EmailEntry" Placeholder="Email Address" Keyboard="Email" TextColor="{StaticResource LazadaTextPrimary}" BackgroundColor="Transparent" />
+        </Border>
+
+        <Border BackgroundColor="#F5F5F5" StrokeThickness="0" Padding="15,5">
+            <Border.StrokeShape><RoundRectangle CornerRadius="4" /></Border.StrokeShape>
+            <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" TextColor="{StaticResource LazadaTextPrimary}" BackgroundColor="Transparent" />
+        </Border>
+
+        <Label x:Name="ErrorLabel" TextColor="Red" FontSize="12" IsVisible="False" />
+
+        <Button Text="SIGN IN" BackgroundColor="{StaticResource LazadaBrand}" TextColor="White" FontAttributes="Bold" CornerRadius="4" HeightRequest="50" Margin="0,20,0,0" Clicked="OnSignInClicked" />
+        
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="5" Margin="0,15,0,0">
+            <Label Text="Don't have an account?" TextColor="{StaticResource LazadaTextSecondary}" />
+            <Label Text="Sign Up" TextColor="{StaticResource LazadaBrand}" FontAttributes="Bold">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSignUpTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

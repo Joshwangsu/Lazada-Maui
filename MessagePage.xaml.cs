@@ -1,8 +1,8 @@
 namespace Lazada;
 
-public partial class CartPage : ContentPage
+public partial class MessagePage : ContentPage
 {
-	public CartPage()
+	public MessagePage()
 	{
 		InitializeComponent();
 	}
@@ -17,13 +17,13 @@ public partial class CartPage : ContentPage
 		await Navigation.PushAsync(new LazMallPage());
 	}
 
-	private async void OnMessageTapped(object sender, EventArgs e)
-	{
-		await Navigation.PushAsync(new MessagePage());
-	}
-
 	private async void OnAccountTapped(object sender, EventArgs e)
 	{
 		await Navigation.PushAsync(new AccountPage());
+	}
+
+	private async void OnCartTapped(object sender, EventArgs e)
+	{
+		await Navigation.PushAsync(new CartPage());
 	}
 }

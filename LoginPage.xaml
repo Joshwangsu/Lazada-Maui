@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lazada.LoginPage"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="White">
+
+    <Grid RowDefinitions="Auto, *, Auto" MaximumWidthRequest="355" HorizontalOptions="Center" BackgroundColor="White">
+        
+        <!-- Header Banner Area -->
+        <Grid Grid.Row="0">
+            <Border StrokeThickness="0" HeightRequest="260" VerticalOptions="Start">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FFE8F0" Offset="0.0" />
+                        <GradientStop Color="#FFFFFF" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid>
+                    <Path Data="{StaticResource IconClose}" Fill="{StaticResource LazadaTextPrimary}" WidthRequest="20" HeightRequest="20" Aspect="Uniform" HorizontalOptions="End" VerticalOptions="Start" Margin="15,40,15,0" />
+                    <VerticalStackLayout Margin="0,70,0,0" Spacing="20">
+                        <Label Text="Continue to unlock deals!" FontSize="20" FontAttributes="Bold" TextColor="#D81B60" HorizontalOptions="Center" />
+                        <Image Source="https://static-main.comet.com/lazada/login_banner.png" HeightRequest="130" Aspect="AspectFit" Margin="20,0" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- Login Options -->
+        <VerticalStackLayout Grid.Row="1" Padding="20,10,20,0" Spacing="15">
+            <!-- Mobile -->
+            <Border BackgroundColor="#E91E63" StrokeThickness="0" HeightRequest="48">
+                <Border.StrokeShape><RoundRectangle CornerRadius="4" /></Border.StrokeShape>
+                <Grid ColumnDefinitions="Auto, *">
+                    <Path Grid.Column="0" Data="{StaticResource IconPhone}" Fill="White" WidthRequest="20" HeightRequest="20" Aspect="Uniform" Margin="20,0,0,0" VerticalOptions="Center" />
+                    <Label Grid.Column="1" Text="Continue with Mobile Phone" TextColor="White" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,0,0" />
+                </Grid>
+            </Border>
+            
+            <!-- Apple -->
+            <Border BackgroundColor="#F5F5F5" StrokeThickness="0" HeightRequest="48">
+                <Border.StrokeShape><RoundRectangle CornerRadius="4" /></Border.StrokeShape>
+                <Grid ColumnDefinitions="Auto, *">
+                    <Path Grid.Column="0" Data="{StaticResource IconApple}" Fill="Black" WidthRequest="20" HeightRequest="20" Aspect="Uniform" Margin="20,0,0,0" VerticalOptions="Center" />
+                    <Label Grid.Column="1" Text="Continue with Apple" TextColor="{StaticResource LazadaTextPrimary}" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,0,0" />
+                </Grid>
+            </Border>
+            
+            <!-- Google -->
+            <Border BackgroundColor="#F5F5F5" StrokeThickness="0" HeightRequest="48">
+                <Border.StrokeShape><RoundRectangle CornerRadius="4" /></Border.StrokeShape>
+                <Grid ColumnDefinitions="Auto, *">
+                    <Path Grid.Column="0" Data="{StaticResource IconGoogle}" Fill="#4285F4" WidthRequest="20" HeightRequest="20" Aspect="Uniform" Margin="20,0,0,0" VerticalOptions="Center" />
+                    <Label Grid.Column="1" Text="Continue with Google" TextColor="{StaticResource LazadaTextPrimary}" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,0,0" />
+                </Grid>
+            </Border>
+            
+            <!-- Facebook -->
+            <Border BackgroundColor="#F5F5F5" StrokeThickness="0" HeightRequest="48">
+                <Border.StrokeShape><RoundRectangle CornerRadius="4" /></Border.StrokeShape>
+                <Grid ColumnDefinitions="Auto, *">
+                    <Path Grid.Column="0" Data="{StaticResource IconFacebook}" Fill="#1877F2" WidthRequest="20" HeightRequest="20" Aspect="Uniform" Margin="20,0,0,0" VerticalOptions="Center" />
+                    <Label Grid.Column="1" Text="Continue with Facebook" TextColor="{StaticResource LazadaTextPrimary}" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,0,0" />
+                </Grid>
+            </Border>
+            
+            <!-- Email -->
+            <Border BackgroundColor="#F5F5F5" StrokeThickness="0" HeightRequest="48">
+                <Border.StrokeShape><RoundRectangle CornerRadius="4" /></Border.StrokeShape>
+                <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnEmailLoginTapped" /></Border.GestureRecognizers>
+                <Grid ColumnDefinitions="Auto, *">
+                    <Path Grid.Column="0" Data="{StaticResource IconKey}" Fill="{StaticResource LazadaTextSecondary}" WidthRequest="20" HeightRequest="20" Aspect="Uniform" Margin="20,0,0,0" VerticalOptions="Center" />
+                    <Label Grid.Column="1" Text="Continue with Email" TextColor="{StaticResource LazadaTextPrimary}" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,0,0" />
+                </Grid>
+            </Border>
+            
+            <Label Text="Trouble signing in?" TextColor="#1976D2" HorizontalOptions="Center" Margin="0,15,0,0" FontAttributes="Bold" FontSize="13" />
+        </VerticalStackLayout>
+
+        <!-- Footer Area -->
+        <VerticalStackLayout Grid.Row="2" Padding="20,20,20,30" Spacing="20">
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="4">
+                <Label Text="By continuing, you agree to our" FontSize="11" TextColor="{StaticResource LazadaTextSecondary}" />
+                <Label Text="Security and Privacy" FontSize="11" TextColor="#1976D2" />
+            </HorizontalStackLayout>
+            
+            <BoxView HeightRequest="1" Color="#EEEEEE" Margin="-20,0,-20,0" />
+            
+            <Grid ColumnDefinitions="Auto, *, Auto" Margin="0,5,0,0">
+                <Path Grid.Column="0" Data="{StaticResource IconFaceID}" Fill="{StaticResource LazadaTextPrimary}" WidthRequest="24" HeightRequest="24" Aspect="Uniform" VerticalOptions="Center" />
+                <Label Grid.Column="1" Text="Enable Face ID authentication" FontSize="13" VerticalOptions="Center" Margin="10,0,0,0" />
+                <Path Grid.Column="2" Data="M22,12 A10,10 0 1,1 2,12 A10,10 0 1,1 22,12 Z M16,12 A4,4 0 1,1 8,12 A4,4 0 1,1 16,12 Z" Fill="#1976D2" WidthRequest="36" HeightRequest="24" Aspect="Uniform" VerticalOptions="Center" HorizontalOptions="End" />
+            </Grid>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
