@@ -2,63 +2,187 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lazada.ProductDetailPage"
-             Title="Product Details">
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource LazadaCanvas}">
 
     <Grid RowDefinitions="*, Auto">
+        
+        <!-- Main Content -->
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Spacing="0">
-                <!-- Product Image -->
-                <BoxView Color="#E0E0E0" HeightRequest="400" />
                 
-                <VerticalStackLayout Padding="15" Spacing="10" BackgroundColor="White">
-                    <Label Text="₱ 299" TextColor="#F57224" FontSize="28" FontAttributes="Bold" />
-                    <Label Text="Wireless Earbuds Bluetooth 5.0 with Noise Cancellation and Charging Case" 
-                           FontSize="18" LineBreakMode="WordWrap" />
+                <!-- Product Image Gallery Placeholder -->
+                <Grid HeightRequest="400">
+                    <Image Source="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800" Aspect="AspectFill" />
                     
+                    <!-- Floating Header -->
+                    <Grid ColumnDefinitions="Auto, *, Auto, Auto" Padding="15,40,15,0" VerticalOptions="Start">
+                        <Border BackgroundColor="#80000000" Padding="8" StrokeThickness="0" WidthRequest="36" HeightRequest="36">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="18" /></Border.StrokeShape>
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnBackTapped" /></Border.GestureRecognizers>
+                            <Path Data="{StaticResource IconBack}" Fill="White" WidthRequest="18" HeightRequest="18" Aspect="Uniform" />
+                        </Border>
+                        
+                        <HorizontalStackLayout Grid.Column="2" Spacing="10">
+                            <Border BackgroundColor="#80000000" Padding="8" StrokeThickness="0" WidthRequest="36" HeightRequest="36">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="18" /></Border.StrokeShape>
+                                <Path Data="{StaticResource IconShare}" Fill="White" WidthRequest="18" HeightRequest="18" Aspect="Uniform" />
+                            </Border>
+                            <Border BackgroundColor="#80000000" Padding="8" StrokeThickness="0" WidthRequest="36" HeightRequest="36">
+                                <Border.StrokeShape><RoundRectangle CornerRectangle="18" /></Border.StrokeShape>
+                                <Path Data="{StaticResource IconCart}" Fill="White" WidthRequest="18" HeightRequest="18" Aspect="Uniform" />
+                            </Border>
+                        </HorizontalStackLayout>
+                    </Grid>
+                </Grid>
+
+                <!-- Product Info -->
+                <VerticalStackLayout Padding="15" Spacing="8" BackgroundColor="White">
                     <HorizontalStackLayout Spacing="5" VerticalOptions="Center">
-                        <Label Text="⭐ 4.9" TextColor="#F57224" FontSize="14" />
-                        <Label Text="124 Ratings" TextColor="Gray" FontSize="14" />
-                        <Label Text="|" TextColor="LightGray" />
-                        <Label Text="10k+ Sold" TextColor="Gray" FontSize="14" />
+                        <Label Text="₱" FontSize="18" TextColor="{StaticResource LazadaBrand}" VerticalOptions="End" Margin="0,0,0,4" />
+                        <Label Text="2,499" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource LazadaBrand}" />
+                        <Label Text="₱4,999" FontSize="14" TextColor="{StaticResource LazadaTextMuted}" TextDecorations="Strikethrough" VerticalOptions="Center" Margin="5,0,0,0" />
+                        <Border BackgroundColor="{StaticResource LazadaBrand}" Padding="4,1" StrokeThickness="0" VerticalOptions="Center" Margin="5,0,0,0">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="2" /></Border.StrokeShape>
+                            <Label Text="-50%" FontSize="10" TextColor="White" FontAttributes="Bold" />
+                        </Border>
+                    </HorizontalStackLayout>
+
+                    <Label Text="Sony WH-1000XM4 Wireless Noise Cancelling Headphones - Black" 
+                           FontSize="18" FontAttributes="Bold" MaxLines="2" TextColor="{StaticResource LazadaTextPrimary}" />
+                    
+                    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                        <HorizontalStackLayout Spacing="2">
+                            <Path Data="{StaticResource IconStar}" Fill="#FFC107" WidthRequest="12" HeightRequest="12" VerticalOptions="Center" />
+                            <Label Text="4.9" FontSize="12" FontAttributes="Bold" TextColor="{StaticResource LazadaTextPrimary}" VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        <Label Text="2.4k Ratings" FontSize="12" TextColor="{StaticResource LazadaTextSecondary}" VerticalOptions="Center" />
+                        <Label Text="|" TextColor="{StaticResource LazadaTextMuted}" />
+                        <Label Text="10k+ Sold" FontSize="12" TextColor="{StaticResource LazadaTextSecondary}" VerticalOptions="Center" />
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
 
-                <!-- Shipping -->
-                <Frame Margin="0,10,0,0" Padding="15" BackgroundColor="White" HasShadow="False">
+                <!-- Vouchers & Promos -->
+                <Border Margin="0,10,0,0" Padding="15" BackgroundColor="White" StrokeThickness="0">
                     <Grid ColumnDefinitions="Auto, *, Auto">
-                        <Label Text="🚚" FontSize="20" VerticalOptions="Center" Margin="0,0,10,0" />
-                        <VerticalStackLayout Grid.Column="1">
-                            <Label Text="Standard Delivery" FontAttributes="Bold" />
-                            <Label Text="Get it by May 15 - May 18" FontSize="12" TextColor="Gray" />
-                        </VerticalStackLayout>
-                        <Label Grid.Column="2" Text="₱ 45" VerticalOptions="Center" />
+                        <Label Text="Vouchers" Grid.Column="0" FontSize="14" TextColor="{StaticResource LazadaTextSecondary}" VerticalOptions="Center" />
+                        <HorizontalStackLayout Grid.Column="1" Margin="15,0" Spacing="8">
+                            <Border BackgroundColor="#FFF0F5" Stroke="{StaticResource LazadaBrand}" StrokeThickness="0.5" Padding="8,4">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="2" /></Border.StrokeShape>
+                                <Label Text="₱100 Off" FontSize="10" TextColor="{StaticResource LazadaBrand}" />
+                            </Border>
+                            <Border BackgroundColor="#FFF0F5" Stroke="{StaticResource LazadaBrand}" StrokeThickness="0.5" Padding="8,4">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="2" /></Border.StrokeShape>
+                                <Label Text="Free Shipping" FontSize="10" TextColor="{StaticResource LazadaBrand}" />
+                            </Border>
+                        </HorizontalStackLayout>
+                        <Label Grid.Column="2" Text=">" TextColor="{StaticResource LazadaTextMuted}" VerticalOptions="Center" />
                     </Grid>
-                </Frame>
+                </Border>
+
+                <!-- Shipping Details -->
+                <Border Margin="0,1,0,0" Padding="15" BackgroundColor="White" StrokeThickness="0">
+                    <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="Auto, *, Auto">
+                        <Path Grid.Row="0" Grid.Column="0" Data="{StaticResource IconTruck}" Fill="{StaticResource LazadaTextSecondary}" WidthRequest="20" HeightRequest="20" Margin="0,0,15,0" VerticalOptions="Start" />
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="2">
+                            <Label Text="Standard Delivery" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource LazadaTextPrimary}" />
+                            <Label Text="Get it by May 20 - May 22" FontSize="12" TextColor="{StaticResource LazadaTextSecondary}" />
+                        </VerticalStackLayout>
+                        <Label Grid.Row="0" Grid.Column="2" Text="₱45" FontSize="14" TextColor="{StaticResource LazadaTextPrimary}" VerticalOptions="Start" />
+                        
+                        <HorizontalStackLayout Grid.Row="1" Grid.Column="1" Margin="0,10,0,0" Spacing="10">
+                            <HorizontalStackLayout Spacing="4">
+                                <Path Data="{StaticResource IconCheck}" Fill="#4CAF50" WidthRequest="12" HeightRequest="12" VerticalOptions="Center" />
+                                <Label Text="Cash on Delivery" FontSize="11" TextColor="{StaticResource LazadaTextSecondary}" />
+                            </HorizontalStackLayout>
+                        </HorizontalStackLayout>
+                    </Grid>
+                </Border>
 
                 <!-- Store Info -->
-                <Frame Margin="0,10,0,0" Padding="15" BackgroundColor="White" HasShadow="False">
-                    <Grid ColumnDefinitions="Auto, *, Auto" ColumnSpacing="15">
-                        <Frame HeightRequest="50" WidthRequest="50" CornerRadius="25" Padding="0" HasShadow="False">
-                            <BoxView Color="#F57224" />
-                        </Frame>
-                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
-                            <Label Text="Lazada Official Store" FontAttributes="Bold" />
-                            <Label Text="98% Positive Feedback" FontSize="12" TextColor="Gray" />
-                        </VerticalStackLayout>
-                        <Button Grid.Column="2" Text="Visit Store" FontSize="12" HeightRequest="35" Padding="10,0" BackgroundColor="White" TextColor="#F57224" BorderColor="#F57224" BorderWidth="1" />
-                    </Grid>
-                </Frame>
+                <Border Margin="0,10,0,0" Padding="15" BackgroundColor="White" StrokeThickness="0">
+                    <VerticalStackLayout Spacing="15">
+                        <Grid ColumnDefinitions="Auto, *, Auto">
+                            <Border Grid.Column="0" HeightRequest="40" WidthRequest="40" StrokeThickness="0">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                                <Image Source="lazada_avatar" Aspect="AspectFill" />
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Margin="10,0" VerticalOptions="Center">
+                                <HorizontalStackLayout Spacing="5">
+                                    <Label Text="Sony Official Store" FontAttributes="Bold" FontSize="15" TextColor="{StaticResource LazadaTextPrimary}" />
+                                    <Border BackgroundColor="{StaticResource LazadaBrand}" Padding="4,0" StrokeThickness="0">
+                                        <Border.StrokeShape><RoundRectangle CornerRadius="2" /></Border.StrokeShape>
+                                        <Label Text="LazMall" FontSize="8" TextColor="White" FontAttributes="Bold" />
+                                    </Border>
+                                </HorizontalStackLayout>
+                                <Label Text="99% Positive Feedback" FontSize="11" TextColor="{StaticResource LazadaTextSecondary}" />
+                            </VerticalStackLayout>
+                            <Button Grid.Column="2" Text="Visit Store" FontSize="12" HeightRequest="30" Padding="15,0" 
+                                    BackgroundColor="White" TextColor="{StaticResource LazadaBrand}" 
+                                    BorderColor="{StaticResource LazadaBrand}" BorderWidth="1" CornerRadius="15" />
+                        </Grid>
+                        
+                        <Grid ColumnDefinitions="*, *, *" HorizontalOptions="Fill">
+                            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                                <Label Text="9.2" FontAttributes="Bold" HorizontalOptions="Center" />
+                                <Label Text="Seller Rating" FontSize="10" TextColor="{StaticResource LazadaTextSecondary}" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                                <Label Text="100%" FontAttributes="Bold" HorizontalOptions="Center" />
+                                <Label Text="Ship on Time" FontSize="10" TextColor="{StaticResource LazadaTextSecondary}" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
+                                <Label Text="98%" FontAttributes="Bold" HorizontalOptions="Center" />
+                                <Label Text="Chat Response" FontSize="10" TextColor="{StaticResource LazadaTextSecondary}" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Reviews Preview -->
+                <Border Margin="0,10,0,10" Padding="15" BackgroundColor="White" StrokeThickness="0">
+                    <VerticalStackLayout Spacing="10">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Label Text="Ratings &amp; Reviews (2,431)" FontAttributes="Bold" FontSize="15" />
+                            <Label Grid.Column="1" Text="View All >" TextColor="{StaticResource LazadaBrand}" FontSize="12" />
+                        </Grid>
+                        
+                        <Border BackgroundColor="#F8F9FA" Padding="10" StrokeThickness="0">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="8" /></Border.StrokeShape>
+                            <VerticalStackLayout Spacing="5">
+                                <HorizontalStackLayout Spacing="5">
+                                    <Label Text="⭐⭐⭐⭐⭐" FontSize="10" />
+                                    <Label Text="m***s" FontSize="10" TextColor="{StaticResource LazadaTextSecondary}" />
+                                </HorizontalStackLayout>
+                                <Label Text="Authentic product! Great sound quality and fast delivery. Very satisfied with this purchase." 
+                                       FontSize="13" TextColor="{StaticResource LazadaTextPrimary}" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </VerticalStackLayout>
+                </Border>
+
             </VerticalStackLayout>
         </ScrollView>
 
-        <!-- Bottom Buttons -->
-        <Grid Grid.Row="1" ColumnDefinitions="Auto, *, *" Padding="10" BackgroundColor="White" ColumnSpacing="10">
-            <VerticalStackLayout VerticalOptions="Center" Padding="10,0">
-                <Label Text="💬" FontSize="20" HorizontalOptions="Center" />
-                <Label Text="Chat" FontSize="10" HorizontalOptions="Center" />
+        <!-- Bottom Action Bar -->
+        <Grid Grid.Row="1" ColumnDefinitions="Auto, Auto, *, *" Padding="10" BackgroundColor="White" ColumnSpacing="10" HeightRequest="70">
+            <Grid.Shadow>
+                <Shadow Brush="Black" Offset="0,-2" Radius="5" Opacity="0.1" />
+            </Grid.Shadow>
+            
+            <VerticalStackLayout VerticalOptions="Center" Padding="5,0">
+                <Path Data="{StaticResource IconMessageBubble}" Fill="{StaticResource LazadaTextSecondary}" WidthRequest="20" HeightRequest="20" Aspect="Uniform" HorizontalOptions="Center" />
+                <Label Text="Chat" FontSize="10" HorizontalOptions="Center" TextColor="{StaticResource LazadaTextSecondary}" />
             </VerticalStackLayout>
-            <Button Grid.Column="1" Text="Add to Cart" BackgroundColor="#FF9900" TextColor="White" CornerRadius="5" />
-            <Button Grid.Column="2" Text="Buy Now" BackgroundColor="#F57224" TextColor="White" CornerRadius="5" />
+            
+            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Padding="5,0">
+                <Path Data="{StaticResource IconShoppingBag}" Fill="{StaticResource LazadaTextSecondary}" WidthRequest="20" HeightRequest="20" Aspect="Uniform" HorizontalOptions="Center" />
+                <Label Text="Store" FontSize="10" HorizontalOptions="Center" TextColor="{StaticResource LazadaTextSecondary}" />
+            </VerticalStackLayout>
+            
+            <Button Grid.Column="2" Text="Add to Cart" BackgroundColor="#FFB000" TextColor="White" FontAttributes="Bold" CornerRadius="4" HeightRequest="45" />
+            <Button Grid.Column="3" Text="Buy Now" BackgroundColor="{StaticResource LazadaBrand}" TextColor="White" FontAttributes="Bold" CornerRadius="4" HeightRequest="45" />
         </Grid>
     </Grid>
 </ContentPage>

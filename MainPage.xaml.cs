@@ -39,5 +39,10 @@ namespace Lazada
         {
             await Navigation.PushAsync(new CartPage());
         }
+
+        private async void OnProductTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ProductDetailPage());
+        }
     }
 }

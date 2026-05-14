@@ -6,4 +6,9 @@ public partial class ProductDetailPage : ContentPage
     {
         InitializeComponent();
     }
+
+    private async void OnBackTapped(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
 }
