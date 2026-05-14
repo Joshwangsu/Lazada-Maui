@@ -7,6 +7,11 @@ public partial class AccountPage : ContentPage
         InitializeComponent();
     }
 
+    private async void OnLoginSignUpTapped(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new LoginPage());
+    }
+
     private async void OnHomeTapped(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//MainPage");

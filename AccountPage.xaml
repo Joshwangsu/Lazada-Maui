@@ -30,7 +30,13 @@
                         </Border>
                         
                         <!-- Login/Sign Up Text -->
-                        <Label Grid.Column="1" Text="Login/Sign Up" FontSize="{StaticResource TextXL}" FontAttributes="Bold" TextColor="{StaticResource LazadaTextPrimary}" VerticalOptions="Center" Margin="15,0,0,0" />
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Margin="15,0,0,0">
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnLoginSignUpTapped" />
+                            </VerticalStackLayout.GestureRecognizers>
+                            <Label Text="Login / Sign Up" FontSize="{StaticResource TextXL}" FontAttributes="Bold" TextColor="{StaticResource LazadaTextPrimary}" />
+                            <Label Text="Tap here to login to your account" FontSize="11" TextColor="{StaticResource LazadaTextSecondary}" />
+                        </VerticalStackLayout>
                         
                         <!-- Header Icons -->
                         <HorizontalStackLayout Grid.Column="2" Spacing="20" VerticalOptions="Center">
