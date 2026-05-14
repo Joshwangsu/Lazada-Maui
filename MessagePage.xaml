@@ -7,7 +7,7 @@
              BackgroundColor="{StaticResource LazadaCanvas}"
              Padding="0">
 
-    <Grid RowDefinitions="Auto, Auto, *, Auto, Auto" MaximumWidthRequest="355" HorizontalOptions="Center" BackgroundColor="White">
+    <Grid RowDefinitions="Auto, Auto, *, Auto, Auto" MaximumWidthRequest="382" HorizontalOptions="Center" BackgroundColor="White">
         
         <!-- 1. Header Section -->
         <Grid Grid.Row="0" ColumnDefinitions="*, Auto, Auto" Padding="15,20,15,10">

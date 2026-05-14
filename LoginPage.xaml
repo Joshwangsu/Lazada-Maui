@@ -6,7 +6,7 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="White">
 
-    <Grid RowDefinitions="Auto, *, Auto" MaximumWidthRequest="355" HorizontalOptions="Center" BackgroundColor="White">
+    <Grid RowDefinitions="Auto, *, Auto" MaximumWidthRequest="382" HorizontalOptions="Center" BackgroundColor="White">
         
         <!-- Header Banner Area -->
         <Grid Grid.Row="0">

@@ -7,7 +7,7 @@
              BackgroundColor="{StaticResource LazadaCanvas}"
              Padding="0">
 
-    <Grid RowDefinitions="*, Auto" MaximumWidthRequest="355" HorizontalOptions="Center" BackgroundColor="White">
+    <Grid RowDefinitions="*, Auto" MaximumWidthRequest="382" HorizontalOptions="Center" BackgroundColor="White">
         <!-- Main Content -->
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Spacing="0">
@@ -22,14 +22,17 @@
                     
                     <Grid ColumnDefinitions="Auto, *, Auto" VerticalOptions="Center">
                         <!-- Profile Image -->
-                        <Border Grid.Column="0" HeightRequest="60" WidthRequest="60" Padding="0" Stroke="{StaticResource LazadaSurface}" StrokeThickness="2">
+                        <Border Grid.Column="0" HeightRequest="60" WidthRequest="60" Padding="0" Stroke="White" StrokeThickness="2" BackgroundColor="#FFF5F8">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="30" />
                             </Border.StrokeShape>
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnLoginSignUpTapped" />
                             </Border.GestureRecognizers>
-                            <Image Source="lazada_avatar" Aspect="AspectFill" />
+                            <Grid>
+                                <Path Data="{StaticResource IconAccount}" Fill="#D81B60" WidthRequest="32" HeightRequest="32" Aspect="Uniform" HorizontalOptions="Center" VerticalOptions="Center" Opacity="0.5" />
+                                <Image Source="lazada_avatar" Aspect="AspectFill" />
+                            </Grid>
                         </Border>
                         
                         <!-- Login/Sign Up Text -->
@@ -37,14 +40,16 @@
                             <VerticalStackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnLoginSignUpTapped" />
                             </VerticalStackLayout.GestureRecognizers>
-                            <Label Text="Login / Sign Up" FontSize="{StaticResource TextXL}" FontAttributes="Bold" TextColor="{StaticResource LazadaTextPrimary}" />
-                            <Label Text="Tap here to login to your account" FontSize="11" TextColor="{StaticResource LazadaTextSecondary}" />
+                            <HorizontalStackLayout Spacing="5" VerticalOptions="Center">
+                                <Label Text="Login / Sign Up" FontSize="22" FontAttributes="Bold" TextColor="{StaticResource LazadaTextPrimary}" VerticalOptions="Center" />
+                                <Path Data="{StaticResource IconHelp}" Fill="#4A5568" HeightRequest="20" WidthRequest="20" Aspect="Uniform" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                            <Label Text="Tap here to login to your account" FontSize="12" TextColor="#718096" Margin="0,2,0,0" />
                         </VerticalStackLayout>
                         
                         <!-- Header Icons -->
-                        <HorizontalStackLayout Grid.Column="2" Spacing="20" VerticalOptions="Center">
-                            <Path Data="{StaticResource IconHelp}" Fill="{StaticResource LazadaTextSecondary}" HeightRequest="22" WidthRequest="22" Aspect="Uniform" />
-                            <Path Data="{StaticResource IconSettings}" Fill="{StaticResource LazadaTextSecondary}" HeightRequest="22" WidthRequest="22" Aspect="Uniform" />
+                        <HorizontalStackLayout Grid.Column="2" Spacing="20" VerticalOptions="Center" HorizontalOptions="End">
+                            <Path Data="{StaticResource IconSettings}" Fill="#4A5568" HeightRequest="24" WidthRequest="24" Aspect="Uniform" />
                         </HorizontalStackLayout>
                     </Grid>
                 </Grid>
