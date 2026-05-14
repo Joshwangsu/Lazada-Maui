@@ -26,6 +26,9 @@
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="30" />
                             </Border.StrokeShape>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnLoginSignUpTapped" />
+                            </Border.GestureRecognizers>
                             <Image Source="lazada_avatar" Aspect="AspectFill" />
                         </Border>
                         

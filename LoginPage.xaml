@@ -18,7 +18,11 @@
                     </LinearGradientBrush>
                 </Border.Background>
                 <Grid>
-                    <Path Data="{StaticResource IconClose}" Fill="{StaticResource LazadaTextPrimary}" WidthRequest="20" HeightRequest="20" Aspect="Uniform" HorizontalOptions="End" VerticalOptions="Start" Margin="15,40,15,0" />
+                    <Path Data="{StaticResource IconClose}" Fill="{StaticResource LazadaTextPrimary}" WidthRequest="20" HeightRequest="20" Aspect="Uniform" HorizontalOptions="End" VerticalOptions="Start" Margin="15,40,15,0">
+                        <Path.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCloseTapped" />
+                        </Path.GestureRecognizers>
+                    </Path>
                     <VerticalStackLayout Margin="0,70,0,0" Spacing="20">
                         <Label Text="Continue to unlock deals!" FontSize="20" FontAttributes="Bold" TextColor="#D81B60" HorizontalOptions="Center" />
                         <Image Source="https://static-main.comet.com/lazada/login_banner.png" HeightRequest="130" Aspect="AspectFit" Margin="20,0" />
