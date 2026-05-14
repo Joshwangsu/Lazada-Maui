@@ -23,40 +23,38 @@ public partial class LoginPage : ContentPage
     {
         try
         {
-            // Note: To make this work, you must set up Firebase Google Auth in the console.
-            // You will need a Web Client ID from your Google Cloud Console.
-            // Below is the standard MAUI WebAuthenticator implementation for OAuth.
-            
-            // Replace with your actual Firebase Auth Domain
-            string authDomain = "YOUR_PROJECT_ID.firebaseapp.com"; 
-            
-            // The callback URL must be registered in your MAUI App (e.g., lazada://)
-            // and added to the Firebase Console -> Authentication -> Settings -> Authorized Domains.
-            var authUrl = new Uri($"https://{authDomain}/__/auth/handler");
-            var callbackUrl = new Uri("lazada://");
+            // 1. Initiate Google Sign-In via MAUI WebAuthenticator
+            // NOTE: You must configure your Firebase project and update this URL with your project ID
+            var authUrl = new Uri("https://YOUR_PROJECT_ID.firebaseapp.com/__/auth/handler");
+            var callbackUrl = new Uri("lazada://"); // Custom URI scheme you must register in Android/iOS project
 
-            // Open the system browser for Google login
-            var authResult = await WebAuthenticator.Default.AuthenticateAsync(authUrl, callbackUrl);
+            var result = await WebAuthenticator.Default.AuthenticateAsync(authUrl, callbackUrl);
 
-            // Extract the access token / id token from the result
-            string idToken = authResult?.IdToken;
+            string idToken = result.Properties["id_token"];
 
-            if (!string.IsNullOrEmpty(idToken))
+            // 2. Authenticate with Firebase using the Google ID Token
+            // Requires: FirebaseAuthentication.net package
+            var authProvider = new Firebase.Auth.Providers.GoogleProvider();
+            var firebaseClient = new Firebase.Auth.FirebaseAuthClient(new Firebase.Auth.FirebaseAuthConfig
             {
-                // Here you would typically pass the idToken to your FirebaseAuthClient
-                // var credential = await _firebaseAuthClient.SignInWithGoogleIdTokenAsync(idToken);
-                await DisplayAlert("Success", "Google Login Successful!", "OK");
-                await Shell.Current.GoToAsync("//MainPage");
-            }
+                ApiKey = "YOUR_FIREBASE_API_KEY",
+                AuthDomain = "YOUR_PROJECT_ID.firebaseapp.com",
+                Providers = new Firebase.Auth.Providers.FirebaseAuthProvider[] { authProvider }
+            });
+
+            var userCredential = await firebaseClient.SignInWithGoogleIdTokenAsync(idToken);
+
+            // 3. Success - Navigate to main page
+            await Shell.Current.GoToAsync("//MainPage");
         }
         catch (TaskCanceledException)
         {
             // User canceled the login flow
-            await DisplayAlert("Canceled", "Google login was canceled.", "OK");
+            await DisplayAlert("Cancelled", "Google sign in was cancelled.", "OK");
         }
         catch (Exception ex)
         {
-            await DisplayAlert("Error", $"Failed to login with Google: {ex.Message}", "OK");
+            await DisplayAlert("Error", $"Google Sign-In failed: {ex.Message}", "OK");
         }
     }
 }
