@@ -6,8 +6,9 @@ namespace Lazada;
 
 public partial class EmailAuthPage : ContentPage
 {
-    private const string FirebaseApiKey = "AIzaSyB5jpRKgD6gfVQeFOvxoQijmg_YSFrnSak";
-    private const string FirebaseAuthDomain = "lazada-mobile-7e132.firebaseapp.com";
+    // TODO: Replace with your actual Firebase API Key and Domain
+    private const string FirebaseApiKey = "YOUR_FIREBASE_API_KEY";
+    private const string FirebaseAuthDomain = "YOUR_PROJECT_ID.firebaseapp.com";
     
     private FirebaseAuthClient _firebaseAuthClient;
 

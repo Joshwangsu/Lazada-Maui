@@ -54,7 +54,6 @@
             <!-- Google -->
             <Border BackgroundColor="#F5F5F5" StrokeThickness="0" HeightRequest="48">
                 <Border.StrokeShape><RoundRectangle CornerRadius="4" /></Border.StrokeShape>
-                <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnGoogleLoginTapped" /></Border.GestureRecognizers>
                 <Grid ColumnDefinitions="Auto, *">
                     <Path Grid.Column="0" Data="{StaticResource IconGoogle}" Fill="#4285F4" WidthRequest="20" HeightRequest="20" Aspect="Uniform" Margin="20,0,0,0" VerticalOptions="Center" />
                     <Label Grid.Column="1" Text="Continue with Google" TextColor="{StaticResource LazadaTextPrimary}" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" Margin="-20,0,0,0" />

@@ -40,12 +40,12 @@
     <x:Double x:Key="Text3XL">40</x:Double>
 
     <!-- Base Styles following Policy -->
-    <Style x:Key="LazadaCardStyle" TargetType="Border">
+    <Style x:Key="LazadaCardStyle" TargetType="Frame">
         <Setter Property="BackgroundColor" Value="{StaticResource LazadaSurface}" />
-        <Setter Property="Stroke" Value="{StaticResource LazadaBorder}" />
-        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="BorderColor" Value="{StaticResource LazadaBorder}" />
+        <Setter Property="HasShadow" Value="False" />
         <Setter Property="Padding" Value="15" />
-        <Setter Property="StrokeShape" Value="RoundRectangle 10" />
+        <Setter Property="CornerRadius" Value="10" />
     </Style>
 
     <Style x:Key="LazadaBadgeStyle" TargetType="Label">

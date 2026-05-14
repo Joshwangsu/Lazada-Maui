@@ -57,7 +57,7 @@
                 <!-- 2. Top Reward Cards -->
                 <Grid ColumnDefinitions="*, *, *" Padding="15" ColumnSpacing="12" Margin="0,-25,0,0">
                     <!-- Coins Card -->
-                    <Border Grid.Column="0" Style="{StaticResource LazadaCardStyle}">
+                    <Frame Grid.Column="0" Style="{StaticResource LazadaCardStyle}">
                         <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
                             <Label Text="Coins" FontSize="{StaticResource TextSM}" HorizontalOptions="Center" TextColor="{StaticResource LazadaTextSecondary}" />
                             <Label Text="Go to Collect" FontSize="{StaticResource TextXS}" HorizontalOptions="Center" TextColor="{StaticResource LazadaTextMuted}" />
@@ -67,10 +67,10 @@
                             </HorizontalStackLayout>
                             <Button Text="Collect" BackgroundColor="{StaticResource LazadaBrand}" TextColor="White" FontSize="{StaticResource TextXS}" HeightRequest="24" Padding="8,0" CornerRadius="12" Margin="0,6,0,0" />
                         </VerticalStackLayout>
-                    </Border>
+                    </Frame>
                     
                     <!-- Voucher Card -->
-                    <Border Grid.Column="1" Style="{StaticResource LazadaCardStyle}">
+                    <Frame Grid.Column="1" Style="{StaticResource LazadaCardStyle}">
                         <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
                             <Label Text="Voucher" FontSize="{StaticResource TextSM}" HorizontalOptions="Center" TextColor="{StaticResource LazadaTextSecondary}" />
                             <Label Text="Check your" FontSize="{StaticResource TextXS}" HorizontalOptions="Center" TextColor="{StaticResource LazadaTextMuted}" />
@@ -83,10 +83,10 @@
                                 <Label Text=">" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextPrimary}" />
                             </HorizontalStackLayout>
                         </VerticalStackLayout>
-                    </Border>
+                    </Frame>
                     
                     <!-- LazFin Card -->
-                    <Border Grid.Column="2" Style="{StaticResource LazadaCardStyle}">
+                    <Frame Grid.Column="2" Style="{StaticResource LazadaCardStyle}">
                         <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
                             <Label Text="LazFin" FontSize="{StaticResource TextSM}" HorizontalOptions="Center" TextColor="{StaticResource LazadaTextSecondary}" />
                             <Label Text="Enjoy safe" FontSize="{StaticResource TextXS}" HorizontalOptions="Center" TextColor="{StaticResource LazadaTextMuted}" />
@@ -99,7 +99,7 @@
                                 <Label Text=">" FontSize="{StaticResource TextXS}" TextColor="{StaticResource LazadaTextPrimary}" />
                             </HorizontalStackLayout>
                         </VerticalStackLayout>
-                    </Border>
+                    </Frame>
                 </Grid>
 
                 <!-- 3. Lazland Banner -->
@@ -150,7 +150,7 @@
                 </Border>
 
                 <!-- 4. My Orders Section -->
-                <Border Margin="15,0" Style="{StaticResource LazadaCardStyle}">
+                <Frame Margin="15,0" Style="{StaticResource LazadaCardStyle}">
                     <VerticalStackLayout Spacing="15">
                         <Grid ColumnDefinitions="*, Auto">
                             <Label Text="My Orders" FontAttributes="Bold" FontSize="{StaticResource TextBase}" TextColor="{StaticResource LazadaTextPrimary}" />
@@ -180,10 +180,10 @@
                             </VerticalStackLayout>
                         </Grid>
                     </VerticalStackLayout>
-                </Border>
+                </Frame>
 
                 <!-- 5. My Channels Section -->
-                <Border Margin="15,15" Style="{StaticResource LazadaCardStyle}">
+                <Frame Margin="15,15" Style="{StaticResource LazadaCardStyle}">
                     <VerticalStackLayout Spacing="15">
                         <Grid ColumnDefinitions="*, Auto, Auto">
                             <Label Text="My Channels" FontAttributes="Bold" FontSize="{StaticResource TextBase}" TextColor="{StaticResource LazadaTextPrimary}" />
@@ -230,7 +230,7 @@
                             </VerticalStackLayout>
                         </Grid>
                     </VerticalStackLayout>
-                </Border>
+                </Frame>
             </VerticalStackLayout>
         </ScrollView>
 
