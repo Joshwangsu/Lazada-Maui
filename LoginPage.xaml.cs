@@ -32,16 +32,19 @@ public partial class LoginPage : ContentPage
             string idToken = result.Properties["id_token"];
 
             // 2. Authenticate with Firebase using the Google ID Token
-            // Requires: FirebaseAuthentication.net package
-            var authProvider = new Firebase.Auth.Providers.GoogleProvider();
+            // Build a GoogleCredential and sign in with it
+            var credential = Firebase.Auth.Providers.GoogleProvider.GetCredential(idToken);
             var firebaseClient = new Firebase.Auth.FirebaseAuthClient(new Firebase.Auth.FirebaseAuthConfig
             {
                 ApiKey = "AIzaSyB5jpRKgD6gfVQeFOvxoQijmg_YSFrnSak",
                 AuthDomain = "lazada-mobile-7e132.firebaseapp.com",
-                Providers = new Firebase.Auth.Providers.FirebaseAuthProvider[] { authProvider }
+                Providers = new Firebase.Auth.Providers.FirebaseAuthProvider[]
+                {
+                    new Firebase.Auth.Providers.GoogleProvider()
+                }
             });
 
-            var userCredential = await firebaseClient.SignInWithGoogleIdTokenAsync(idToken);
+            var userCredential = await firebaseClient.SignInWithCredentialAsync(credential);
 
             // 3. Success - Navigate to main page
             await Shell.Current.GoToAsync("//MainPage");
