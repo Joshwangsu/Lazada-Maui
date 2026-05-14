@@ -6,7 +6,7 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource LazadaCanvas}">
 
-    <Grid RowDefinitions="Auto, *, Auto" MaximumWidthRequest="382" HorizontalOptions="Center" BackgroundColor="White">
+    <Grid RowDefinitions="Auto, *, Auto" BackgroundColor="White">
         <!-- 1. Top Header Section -->
         <VerticalStackLayout Grid.Row="0" BackgroundColor="White" Padding="0,0,0,10">
             <!-- Global Brand Selection Banner -->

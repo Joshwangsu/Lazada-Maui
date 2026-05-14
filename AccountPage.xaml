@@ -7,7 +7,7 @@
              BackgroundColor="{StaticResource LazadaCanvas}"
              Padding="0">
 
-    <Grid RowDefinitions="*, Auto" MaximumWidthRequest="382" HorizontalOptions="Center" BackgroundColor="White">
+    <Grid RowDefinitions="*, Auto" BackgroundColor="White">
         <!-- Main Content -->
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Spacing="0">

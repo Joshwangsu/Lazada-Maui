@@ -5,7 +5,7 @@
              Title="Login with Email"
              BackgroundColor="White">
 
-    <VerticalStackLayout Padding="20,40" Spacing="20" MaximumWidthRequest="382" HorizontalOptions="Center">
+    <VerticalStackLayout Padding="20,40" Spacing="20">
         <Label Text="Welcome Back!" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource LazadaTextPrimary}" />
         <Label Text="Sign in to your account using Firebase Authentication." FontSize="14" TextColor="{StaticResource LazadaTextSecondary}" Margin="0,0,0,10" />
 
